@@ -1,0 +1,10 @@
+body{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+}
+
+#list-section {
+  display: flex;
+}
