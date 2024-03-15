@@ -8,18 +8,19 @@
 
 //State
 const freelancers = [
-  {name: "Thoen Cliatra", price: 100, occupation:"Ship Captain"},
-  {name: "Dee Martusa", price: 975, occupation: "Professional Heiress"},
-  {name: "Isabella Ballard", price: 49, occupation: "Letter Writer"},
-  {name: "Mikaiyl Algador", price: 250, occupation: "Prince of Darkness"},
-  {name: "Anwar Shadjunet", price: 515, occupation: "Queensguard"},
-  {name: "Carmilla DeVries", price: 375, occupation: "Pirate"},
-  {name: "Rorick Reventon", price: 750, occupation: "General"},
-  {name: "Nylaena Alari", price: 500, occupation: "Bounty Hunter"}
+  {name: "Thoen Cliatra", price: 100.00, occupation:"Ship Captain"},
+  {name: "Dee Martusa", price: 975.99, occupation: "Professional Heiress"},
+  {name: "Isabella Ballard", price: 49.50, occupation: "Letter Writer"},
+  {name: "Mikaiyl Algador", price: 250.00, occupation: "Prince of Darkness"},
+  {name: "Anwar Shadjunet", price: 515.75, occupation: "Queensguard"},
+  {name: "Carmilla DeVries", price: 375.00, occupation: "Pirate"},
+  {name: "Rorick Reventon", price: 750.00, occupation: "General"},
+  {name: "Nylaena Alari", price: 500.99, occupation: "Bounty Hunter"},
+  {name: "Kathryn Reventon", price: 800.99, occupation: "Senator"}
 ]
 
 const displayedFreelancers = [
-  {name: "Kathryn Reventon", price: 800, occupation: "Senator"},
+  {name: "Kathryn Reventon", price: 800.99, occupation: "Senator"},
 ];
 
 
@@ -57,7 +58,14 @@ const render = () => {
   });
   renderedOccupations.replaceChildren(...renderedOccupationElements);
 
-  
+  renderedAverage = displayedFreelancers.reduce((currentTotal, currentPrice) => {
+    return currentTotal + currentPrice.price;
+  }, 0)
+
+  const finalAverage = (renderedAverage / displayedFreelancers.length).toFixed(2);
+
+  const averagePrice = document.querySelector('#average-rate');
+  averagePrice.innerText = `The average cost of the freelancers is: $${finalAverage}`
 } 
 
 
